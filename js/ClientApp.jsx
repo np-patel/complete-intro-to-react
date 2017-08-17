@@ -18,7 +18,7 @@ const MyFirstComponent = function() {
   		<div id="MyFirstComponent">
   			<MyTitle title = "Game of Thrones" color= "YellowGreen"/>
   			<MyTitle title = "Stranger Things'" color= "GreenYellow"/>
-  			<MyTitle title = "Rick and Morty" color= "LimeGreen"/>
+  			<MyTitle title = "AIB" color= "LimeGreen"/>
   			<MyTitle title = "Eeast India Comedy" color= "peru"/>
     </div>
   );
