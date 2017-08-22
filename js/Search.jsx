@@ -8,23 +8,18 @@ and render method must return markup */
 
 class Search extends Component {
 
-	constructor (props) {
-		super(props);
-
-		/* initialsing state in the constructor */
-		this.state = {
-			searchTerm: 'This is some sort of debug statement'
+	state = {
+			searchTerm: ''
 		};
 
-		this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-	}
+		/* this.handleSearchTermChange = this.handleSearchTermChange.bind(this); */
 
 	/* create method*/
-	handleSearchTermChange (event) {
-		this.setState({searchTerm: event.target.value})
-	}
+	handleSearchTermChange = (event) => {
+		this.setState({searchTerm: event.target.value});
+	};
 
-	render	() {
+	render() {
 		return (
 			<div className = 'search'>
 				<header>
@@ -36,7 +31,11 @@ class Search extends Component {
 				</header>
 
 				<div>
-					{preload.shows.map( show => <ShowCard key={show.imdbID} show={show} />)}	
+					{preload.shows
+					.filter(show => `${show.title} ${show.description}`
+						.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+
+					.map( show => <ShowCard key={show.imdbID} show={show} />)}	
 				</div>
 			</div>
 		);
